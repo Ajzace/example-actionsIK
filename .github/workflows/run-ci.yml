@@ -1,4 +1,4 @@
-#: run-ci
+name: GHA Task
 jobs:
  GHA_TASK
  #Run Discovery
