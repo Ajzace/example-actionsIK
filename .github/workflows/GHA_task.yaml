@@ -13,9 +13,9 @@ jobs:
         id: discovery
         uses: NeuraLegion/run-discovery@v1.1
         with:
-          api_token: ${{ secrets.Isah_GhA_Task }}
+          api_token: ${{ secrets.ISAH_GHA_TASK }}
           name: GHA Task - Isah Disc
-          project_id: ${{ vars.pqbeJVvVSjKbgivMZgxS57 }}
+          project_id: ${{ vars.PROJECT_ID }}
           discovery_types: |
             [ "crawler" ]
           crawler_urls: |
