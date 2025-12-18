@@ -5,12 +5,10 @@ steps:
     uses: NeuraLegion/run-discovery@v1.1
     with:
       api_token: ${{ secrets.Isah_GhA_Task }}
-      name: GitHub discovery ${{ github.sha }}
+      name: GHA - Isah Task
       project_id: pqbeJVvVSjKbgivMZgxS57
       discovery_types: |
         [ "crawler" ]
       crawler_urls: |
         [ "http://brokencrystal.com" ]
         auth_object_id: 7rFF7PmgBEKXPkoewzcoKp
-  - name: Get the output discovery url
-    run: echo "The discovery was started on ${{ steps.start.outputs.url }}"
