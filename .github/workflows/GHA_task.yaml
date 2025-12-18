@@ -16,7 +16,7 @@ jobs:
           api_token: ${{ secrets.Isah_GhA_Task }}
           name: GHA Task - Isah Disc
           project_id: ${{ vars.pqbeJVvVSjKbgivMZgxS57 }}
-          discovery_types: | 
-           [ "crawler" ] 
-          crawler_urls: | 
-           [ "https://brokencrystals.com/" ]
+          discovery_types: |
+            [ "crawler" ]
+          crawler_urls: |
+            [ "https://brokencrystals.com/" ]
