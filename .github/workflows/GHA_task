@@ -1,0 +1,23 @@
+name: GHA Task
+on:
+  workflow_dispatch:
+jobs:
+  GHA_Task:
+    runs-on:
+      - ubuntu_latest
+       steps:
+      #Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+        #Run Discovery
+      - name: Run Discovery
+        id: discovery
+        uses: NeuraLegion/run-discovery@v1.1
+        with:
+          api_token: ${{ secrets.Isah_GhA_Task }}
+          name: GHA Task - Isah Disc
+          project_id: ${{ vars.pqbeJVvVSjKbgivMZgxS57 }}
+          discovery_types: |
+            [ "crawler" ]
+          crawler_urls: |
+            [ "https://brokencrystals.com/" ]
