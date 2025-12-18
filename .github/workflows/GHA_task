@@ -3,9 +3,8 @@ on:
   workflow_dispatch:
 jobs:
   GHA_Task:
-    runs-on:
-      - ubuntu_latest
-       steps:
+    runs-on: ubuntu-latest
+      steps:
       #Checkout repo
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,7 +16,5 @@ jobs:
           api_token: ${{ secrets.Isah_GhA_Task }}
           name: GHA Task - Isah Disc
           project_id: ${{ vars.pqbeJVvVSjKbgivMZgxS57 }}
-          discovery_types: |
-            [ "crawler" ]
-          crawler_urls: |
-            [ "https://brokencrystals.com/" ]
+          discovery_types: crawler
+          crawler_urls: https://brokencrystals.com
