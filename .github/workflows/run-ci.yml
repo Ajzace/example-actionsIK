@@ -1,6 +1,7 @@
-name: Isah GHA - Discovery
+#: GHA Task
 jobs:
-  GHA_Training:
+ GHA_TASK
+ #Run Discovery
   - name: Start Bright Discovery Isah Task
     id: start
     uses: NeuraLegion/run-discovery@v1.1
