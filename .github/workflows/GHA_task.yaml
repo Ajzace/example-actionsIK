@@ -10,11 +10,13 @@ jobs:
         uses: actions/checkout@v4
         #Run Discovery
       - name: Run Discovery
-        id: start
+        id: discovery
         uses: NeuraLegion/run-discovery@v1.1
         with:
           api_token: ${{ secrets.Isah_GhA_Task }}
           name: GHA Task - Isah Disc
           project_id: ${{ vars.pqbeJVvVSjKbgivMZgxS57 }}
-          discovery_types: crawler
-          crawler_urls: https://brokencrystals.com
+          discovery_types: | 
+           [ "crawler" ] 
+          crawler_urls: | 
+           [ "https://brokencrystals.com/" ]
