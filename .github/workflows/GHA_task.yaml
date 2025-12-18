@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
         #Run Discovery
       - name: Run Discovery
-        id: discovery
+        id: start
         uses: NeuraLegion/run-discovery@v1.1
         with:
           api_token: ${{ secrets.Isah_GhA_Task }}
