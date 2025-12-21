@@ -35,7 +35,7 @@ jobs:
         uses: NeuraLegion/list-entrypoints@v1.1
         with:
           api_token: ${{ secrets.ISAH_GHA_TASK }}
-          project_id: ${{ secrets.PROJECT_ID }}
+          project_id: ${{ vars.PROJECT_ID }}
           limit: 15
           connectivity: ok
           status: new,vulnerable
