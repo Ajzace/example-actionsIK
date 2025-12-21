@@ -5,7 +5,7 @@ jobs:
   GHA_Task:
     runs-on: ubuntu-latest
     steps:
-      #Checkout repo
+        #Checkout repo
       - name: Checkout code
         uses: actions/checkout@v4
         #Run Discovery
@@ -20,3 +20,35 @@ jobs:
             [ "crawler" ]
           crawler_urls: |
             [ "https://brokencrystals.com/" ]
+            
+      - name: Wait for discovery to finish
+        id: wait
+        uses: NeuraLegion/wait-for-discovery@v1
+        with:
+          api_token: ${{ secrets.ISAH_GHA_TASK }}
+          discovery_id: ${{ steps.discovery.outputs.id }}
+          project_id: ${{ vars.PROJECT_ID }}
+          timeout: 6780
+          
+      - name: List Project Entrypoints
+        id: entrypoints
+        uses: NeuraLegion/list-entrypoints@v1.1
+        with:
+          api_token: ${{ secrets.ISAH_GHA_TASK }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          limit: 15
+          connectivity: ok
+          status: new,vulnerable
+          ids_only: true
+        
+      - name: Start Bright Scan
+        id: scan
+        uses: NeuraLegion/run-scan@v1
+        with:
+          api_token: ${{ secrets.BRIGHTSEC_TOKEN }}
+          project_id: ${{ vars.PROJECT_ID }}
+          entrypoints: ${{ steps.entrypoints.outputs.id }}
+          name: GitHub scan ${{ github.sha }}
+          wait_for: medium
+          timeout: 9200
+          stop_scan: true
