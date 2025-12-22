@@ -40,7 +40,7 @@ jobs:
         
       - name: Start Bright Scan
         id: scan
-        uses: NeuraLegion/run-scan@release
+        uses: NeuraLegion/run-scan@v1.1
         with:
           api_token: ${{ secrets.BRIGHTSEC_TOKEN }}
           project_id: ${{ vars.PROJECT_ID }}
@@ -49,3 +49,5 @@ jobs:
           wait_for: medium
           timeout: 9200
           stop_scan: true
+      - name: Get the output scan url
+        run: echo "The scan was started on ${{ steps.scan.outputs.url }}"
