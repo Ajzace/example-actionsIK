@@ -5,9 +5,6 @@ jobs:
   GHA_Task:
     runs-on: ubuntu-latest
     steps:
-        #Checkout repo
-      - name: Checkout code
-        uses: actions/checkout@v4
         #Run Discovery
       - name: Run Discovery
         id: discovery
