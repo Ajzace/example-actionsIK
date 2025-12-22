@@ -40,7 +40,7 @@ jobs:
         
       - name: Start Bright Scan
         id: scan
-        uses: NeuraLegion/run-scan@v1.1
+        uses: NeuraLegion/run-scan@release
         with:
           api_token: ${{ secrets.BRIGHTSEC_TOKEN }}
           project_id: ${{ vars.PROJECT_ID }}
