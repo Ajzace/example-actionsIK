@@ -46,8 +46,16 @@ jobs:
           project_id: ${{ vars.PROJECT_ID }}
           entrypoints: ${{ steps.entrypoints.outputs.id }}
           name: GitHub scan ${{ github.sha }}
-          wait_for: medium
-          timeout: 9200
-          stop_scan: true
+       
       - name: Get the output scan url
         run: echo "The scan was started on ${{ steps.scan.outputs.url }}"
+
+      - name: Wait for Medium
+        id: medium
+        uses: NeuraLegion/wait-for@release
+        with:
+          api_token:  ${{ secrets.BRIGHTSEC_TOKEN }}
+          scan: ${{ steps.scan.outputs.id }}
+          wait_for: medium
+          timeout: 7123
+          stop_scan: true
