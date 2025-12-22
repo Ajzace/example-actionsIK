@@ -25,7 +25,7 @@ jobs:
           api_token: ${{ secrets.ISAH_GHA_TASK }}
           discovery_id: ${{ steps.discovery.outputs.id }}
           project_id: ${{ vars.PROJECT_ID }}
-          timeout: 6780
+          timeout: 8899
           
       - name: List Project Entrypoints
         id: entrypoints
