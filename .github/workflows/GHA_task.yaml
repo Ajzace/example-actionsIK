@@ -44,7 +44,7 @@ jobs:
         with:
           api_token: ${{ secrets.BRIGHTSEC_TOKEN }}
           project_id: ${{ vars.PROJECT_ID }}
-          entrypoints: ${{ steps.entrypoints.outputs.id }}
+          entrypoints: ${{ steps.entrypoints.outputs.entrypoints }}
           name: GitHub scan ${{ github.sha }}
        
       - name: Get the output scan url
