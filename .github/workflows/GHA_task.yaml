@@ -42,10 +42,10 @@ jobs:
         id: scan
         uses: NeuraLegion/run-scan@release
         with:
-          api_token: ${{ secrets.BRIGHTSEC_TOKEN }}
+          api_token: ${{ secrets.ISAH_GHA_TASK }}
           project_id: ${{ vars.PROJECT_ID }}
           entrypoints: ${{ steps.entrypoints.outputs.entrypoints }}
-          name: GitHub scan ${{ github.sha }}
+          name: GHA Scan Isah
        
       - name: Get the output scan url
         run: echo "The scan was started on ${{ steps.scan.outputs.url }}"
@@ -54,7 +54,7 @@ jobs:
         id: medium
         uses: NeuraLegion/wait-for@release
         with:
-          api_token:  ${{ secrets.BRIGHTSEC_TOKEN }}
+          api_token:  ${{ secrets.ISAH_GHA_TASK }}
           scan: ${{ steps.scan.outputs.id }}
           wait_for: medium
           timeout: 7123
